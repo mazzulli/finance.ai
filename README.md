@@ -55,3 +55,7 @@ Para este projeto configurarmos a pasta components, libs, hooks, tudo dentro da 
 "lib": "@/app/\_lib",
 "hooks": "@/app/\_hooks"
 }
+
+Instalar os componentes do shadcn.
+
+`npx shadcn@2.1.3 add button`
