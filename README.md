@@ -2,9 +2,13 @@
 
 `npx create-next-app@14.2.16`
 
-# Criarmos a modelagem de dados
+# Criar a modelagem de dados
+
+Usar o eraser para criar o diagrama de entidade e relacionamento.
 
 # Instalar o Prisma
+
+Usar o Prisma como ORM.
 
 `npm install prisma@5.21.1 typescript ts-node @types/node --save-dev`
 `npx prisma init --datasource-provider postgresql`
@@ -34,3 +38,20 @@ Usar o ESLint para verificar se o código está correto e não há erros de sint
 `npx eslint --init`
 
 Instalar também o eslint plugin no VSCode.
+
+# Shadcn/ui
+
+Usar o shadcn como padrão de estilo do projeto.
+
+`npx shadcn@2.1.3 init`
+
+Configurar o arquivo components.json para apontar para a pasta components.
+Para este projeto configurarmos a pasta components, libs, hooks, tudo dentro da pasta app. Por isso o arquiov components.json ficará assim:
+
+"aliases": {
+"components": "@/app/\_components",
+"utils": "@/app/\_lib/utils",
+"ui": "@/app/\_components/ui",
+"lib": "@/app/\_lib",
+"hooks": "@/app/\_hooks"
+}
