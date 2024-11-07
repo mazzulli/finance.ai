@@ -156,3 +156,17 @@ Para configurar o husky 5 com o commit msg, instalar o pacote abaixo:
 
 Criar um arquivo "commit-msg" dentro da pasta .husky e colocar o codigo abaixo:
 .git/hooks/commit-msg $1
+
+# Fontes
+
+O next integra com o google fonts.
+Para isso é só importar através do caminho: `import {Mulish} from "next/font/google";`, onde Mulish é o nome da fonte do google.
+Para aplicar no projeto, basta usar o css: `font-family: ${Mulish.style.cssFontFamily}` ou criar uma constante como abaixo:
+
+const mulish = Mulish({
+subsets: ["latin-ext"],
+});
+
+E aplicando no body do projeto:
+
+<body className={`${mulish.className} dark antialiased`}>
