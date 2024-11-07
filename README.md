@@ -28,6 +28,8 @@ Usar o Prisma como ORM.
 
 Dentro do arquivo prisma.shcema contem a modelagem de dados que ao rodar o npx prisma migrate dev --name init irá criar as tabelas no banco de dados.
 
+Para formatar o schema use o comando: `npx prisma format`
+
 # Instalar o Prettier e sua extensão do VSCode
 
 O Prettier é um linter que formata o código de acordo com as regras de formatação do projeto. Irá ajudar a manter o código organizado e fácil de entender. No tailwind irá ajudar a manter as classes organizadas.
