@@ -1,3 +1,9 @@
+# Links Uteis
+
+Modelagem de dados:
+https://www.drawdb.app/
+https://drawsql.app/
+
 # Criar o projeto
 
 `npx create-next-app@14.2.16`
@@ -5,6 +11,12 @@
 # Criar a modelagem de dados
 
 Usar o eraser para criar o diagrama de entidade e relacionamento.
+A modelagem está em: https://app.eraser.io/workspace/C3HphDLMJA9jzuCzqR6L
+
+# Banco de Dados
+
+O banco de dados utilizado é o PostgreSQL.
+Ele está hospedado no NeonDB em: https://console.neon.tech/app/projects/gentle-paper-35030639?database=neondb
 
 # Instalar o Prisma
 
