@@ -134,9 +134,13 @@ Se houver erro, o commit não será feito.
 
 ## Git Hooks Convention Message Validation
 
-https://www.npmjs.com/package/git-commit-msg-linter
-Para validar se a mensagem do commit está dentro dos padrões da convensão do git, instalar o pacote `npm i git-commit-msg-linter@5.0.8`
+Documentação em : https://www.npmjs.com/package/git-commit-msg-linter
+
+Para validar se a mensagem do commit está dentro dos padrões da convensão do git,
+instalar o pacote `npm i git-commit-msg-linter@5.0.8`
+
 Para configurar o husky 5 com o commit msg, instalar o pacote abaixo:
 `npx husky add .husky/commit-msg ".git/hooks/commit-msg \$1"`
 
-Criar uma pasta "commit-msg" na raiz do projeto
+Criar um arquivo "commit-msg" dentro da pasta .husky e colocar o codigo abaixo:
+.git/hooks/commit-msg $1
