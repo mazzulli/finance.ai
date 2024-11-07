@@ -98,3 +98,36 @@ Instalar o sonner para criar toast.
 `npx shadcn@2.1.3 add sonner`
 
 Acrescentar o <Toaster /> no layout.tsx principal.
+
+# Git Hooks
+
+Este hook do git irá verificar se o código está de acordo com as regras de commit. Isso se aplicará para qualquer desenvolvedor que faça o commit, mantendo um padrão de qualidade no código.
+
+Para configurar os hooks do git, instalar o pacote `npm install husky@9.1.6`.
+
+https://www.npmjs.com/package/husky
+
+Instalar o husky para criar hooks.
+`npm install -D husky@9.1.6`
+
+Instalar também o lint staged, https://www.npmjs.com/package/lint-staged/v/12.3.2
+`npm i -D lint-staged@12.3.2`
+
+Após instalar estas duas dependencias, rodar o comando:
+`npx husky init`
+
+Com isso será criada uma pasta .husky com um arquivo pre-commit.
+Nele iremos configurar colocando o comando conforme abaixo:
+
+npx lint-staged
+
+Criar um arquivo na raiz do projeto com o nome .lintstagedrc.json e colocar o conteudo abaixo:
+{
+"\*.ts?(x)": [
+"eslint --fix",
+"prettier --write"
+]
+}
+
+Isso fará com que o eslint e o prettier sejam executados antes de fazer o commit, garantindo que o código esteja correto.
+Se houver erro, o commit não será feito.
