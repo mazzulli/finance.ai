@@ -170,3 +170,24 @@ subsets: ["latin-ext"],
 E aplicando no body do projeto:
 
 <body className={`${mulish.className} dark antialiased`}>
+
+# Docker
+
+Para usar o docker, é só criar um arquivo Dockerfile e configurar o projeto para rodar dentro do container.
+Criar um arquivo docker-compose.yml com o conteúdo abaixo:
+services:
+postgres:
+image: postgres:latest
+container_name: finance-ai-database # usando o mesmo nome do container de outro projeto para economizar espaço
+environment:
+POSTGRES_USER: postgres
+POSTGRES_PASSWORD: password
+POSTGRES_DB: finance-ai
+ports: - "5432:5432"
+volumes: - ./.postgres-data:/var/lib/postgresql/data
+
+volumes:
+.postgres-data:
+
+Para criar as tabelas no banco de dados, rodar o comando do prisma:
+`npx prisma migrate dev`
