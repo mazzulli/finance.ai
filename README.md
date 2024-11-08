@@ -193,3 +193,54 @@ volumes:
 
 Para criar as tabelas no banco de dados, rodar o comando do prisma:
 `npx prisma migrate dev`
+
+# Criar Conexão com o Banco de Dados Prisma
+
+Para criar uma conexão no next com o Prisma, iremos criar dentro da pasta \_lib um arquivo chamado prisma.ts com o conteúdo abaixo:
+
+import { PrismaClient } from "@prisma/client";
+
+declare global {
+// eslint-disable-next-line no-var
+var cachedPrisma: PrismaClient;
+}
+
+let prisma: PrismaClient;
+if (process.env.NODE_ENV === "production") {
+prisma = new PrismaClient();
+} else {
+if (!global.cachedPrisma) {
+global.cachedPrisma = new PrismaClient();
+}
+prisma = global.cachedPrisma;
+}
+export const db = prisma;
+
+Este arquivo irá criar uma conexão com o banco de dados e irá gerenciar para que não sejam abertoas novas instancias/ sessões.
+
+Depos de criado, é só instanciar no arquivo que você deseja usar o banco de dados:
+`const transactions = await db.transaction.findMany({});`
+
+A variavel acima recebe todos os registros da tabela transaction.
+
+# SERVER E CLIENT COMPONENTS
+
+Server components podem importar client components, mas não o contrário.
+
+# Uso do ASYNC E VARIAVEIS DE ESTADO
+
+O ASYNC só pode ser usado em componentes server-side, pois ele não pode ser usado em componentes client-side, pois o browser não suporta.
+Variáveis de estado, useState, só podem ser usadas em componentes client-side, pois interagem com o DOM / Front / Cliente.
+
+# DATA TABLE - SHADCN
+
+Para usar o DataTable, você precisa instalar o pacote shadcn, com o comando abaixo:
+`npx shadcn@2.1.3 add table`
+
+também instalar a dependencia:
+`npm install @tanstack/react-table`
+
+Para usar o DataTable, você precisa criar um componente com o nome data-table.tsx, copiar o codigo da pagina do Shadcn / table dentro dele, ajustar os apontamentos. Depois criar um arquivo columns.ts que conterá o código para criação das colunas. Pegar exemplo no site do Shadcn / table também. Este arquivo deve estar dentro da pasta \_columns que ficará dentro da pagina que você deseja usar o DataTable. Exemplo: app/transactions/\_columns/columns.ts.
+Ajustar o código para que ele seja usado dentro do componente data-table.tsx.
+`export const transactionColumns: ColumnDef<Transaction>[] = [...`
+O codigo ColumnDef<Transaction> é um tipo que você precisa criar dentro do arquivo columns.ts. <Transaction> é o nome da tabela que você está usando, integrado ao Prisma. Com isso a tipagem é feita automaticamente.
