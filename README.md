@@ -1,24 +1,41 @@
-# Links Uteis
+# LINKS UTEIS
+
+Aula 1: Boas Vindas e Apresentação do Evento | Full Stack Week
+https://www.youtube.com/live/WtVI5mLHjtE
+Aula 2: Setup do Projeto & Autenticação | Full Stack Week
+https://www.youtube.com/watch?v=bSR-iWChMhs
+Aula 3: Gestão de Transações | Full Stack Week
+https://www.youtube.com/watch?v=AjwjN3xFDr8
+Aula 4: Mentoria Tira Dúvidas | Full Stack Week
+https://www.youtube.com/live/rgkP8fZHjrU
+Aula 5: Dashboard & Gráficos | Full Stack Week
+https://www.youtube.com/watch?v=zEcehthgR5s
+Aula 6 - Integração com ChatGPT & Planos de Assinatura
+https://www.youtube.com/watch?v=QpykcA92ffs
+Aula 7: Mentoria Tira Dúvidas | Full Stack Week
+https://www.youtube.com/live/OfzsmvuCx3Y
+Aula 8: Deploy, Revisão do Projeto & Sorteio de Notebook Gamer | Full Stack Week
+https://www.youtube.com/watch?v=-qSqxzYQyUs
 
 Modelagem de dados:
 https://www.drawdb.app/
 https://drawsql.app/
 
-# Criar o projeto
+# CRIAR PROJETO
 
 `npx create-next-app@14.2.16`
 
-# Criar a modelagem de dados
+# CRIAR MODELAGEM DE DADOS
 
 Usar o eraser para criar o diagrama de entidade e relacionamento.
 A modelagem está em: https://app.eraser.io/workspace/C3HphDLMJA9jzuCzqR6L
 
-# Banco de Dados
+# BANCO DE DADOS
 
 O banco de dados utilizado é o PostgreSQL.
 Ele está hospedado no NeonDB em: https://console.neon.tech/app/projects/gentle-paper-35030639?database=neondb
 
-# Instalar o Prisma
+# INSTALAR O PRISMA
 
 Usar o Prisma como ORM.
 

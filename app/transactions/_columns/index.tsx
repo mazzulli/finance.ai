@@ -3,6 +3,8 @@
 import { Transaction } from "@prisma/client";
 import { ColumnDef } from "@tanstack/react-table";
 import TransactionTypeBadge from "../_components/type-badge";
+import { Button } from "@/app/_components/ui/button";
+import { Ghost, PencilIcon, TrashIcon } from "lucide-react";
 
 export const TRANSACTION_CATEGORY_LABELS = {
   EDUCATION: "Educação",
@@ -23,9 +25,9 @@ export const transactionColumns: ColumnDef<Transaction>[] = [
   {
     accessorKey: "type",
     header: "Tipo",
-    cell: ({ row: { original: transaction } }) => {
-      <TransactionTypeBadge transaction={transaction} />;
-    },
+    cell: ({ row: { original: transaction } }) => (
+      <TransactionTypeBadge transaction={transaction} />
+    ),
   },
   {
     accessorKey: "category",
@@ -52,6 +54,18 @@ export const transactionColumns: ColumnDef<Transaction>[] = [
   },
   {
     accessorKey: "actions",
-    header: "",
+    header: "Ações",
+    cell: () => {
+      return (
+        <div>
+          <Button variant="ghost" size="icon" className="text-muted-foreground">
+            <PencilIcon />
+          </Button>
+          <Button variant="ghost" size="icon" className="text-muted-foreground">
+            <TrashIcon />
+          </Button>
+        </div>
+      );
+    },
   },
 ];
