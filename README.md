@@ -261,3 +261,11 @@ Para usar o DataTable, você precisa criar um componente com o nome data-table.t
 Ajustar o código para que ele seja usado dentro do componente data-table.tsx.
 `export const transactionColumns: ColumnDef<Transaction>[] = [...`
 O codigo ColumnDef<Transaction> é um tipo que você precisa criar dentro do arquivo columns.ts. <Transaction> é o nome da tabela que você está usando, integrado ao Prisma. Com isso a tipagem é feita automaticamente.
+
+# DIALOG - MÓDULO DE INCLUSÃO DE TRANSAÇÕES
+
+Para criar o módulo de adição de transações, vamos usar o Dialog. Para isso, você precisa instalar o pacote shadcn, com o comando `npx shadcn@2.1.3 add dialog`
+
+Para o formulário iremos usar o Form do Shadcn, para isso, você precisa instalar o pacote shadcn, com o comando `npx shadcn@2.1.3 add form`, e para os campos , iremos usar o Field do Shadcn, para isso, você precisa instalar o pacote shadcn, com o comando `npx shadcn@2.1.3 add input`, `npx shadcn@2.1.3 add select`, `npx shadcn@2.1.3 add popover calendar`, entre outros.
+
+Para formatar o valor do campo "amount" para que ele seja exibido com duas casas decimais no formato de moeda brasileiro, iremos usar o pacote `react-number-format` com o comando `npm install react-number-format@5.4.2`
