@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpDownIcon, CheckCircle2 } from "lucide-react";
+import { ArrowUpDownIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import {
   Dialog,
@@ -30,7 +30,6 @@ import {
 } from "./ui/form";
 import { Input } from "./ui/input";
 import CurrencyInputFormat from "./currency-input";
-import { Alert, AlertDescription } from "./ui/alert";
 import { useState } from "react";
 import {
   Select,
@@ -45,6 +44,7 @@ import {
   TRANSACTION_TYPE_OPTIONS,
 } from "./_constants/transactions";
 import { DatePicker } from "./ui/date-picker";
+import { addTransaction } from "../_actions/add-transaction";
 
 type FormSchema = z.infer<typeof formSchema>;
 
@@ -76,7 +76,7 @@ const formSchema = z.object({
 });
 
 const AddTransactionButton = () => {
-  const [submitted, setSubmitted] = useState(false);
+  const [dialogIsOpen, setDialogIsOpen] = useState(false);
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -89,15 +89,21 @@ const AddTransactionButton = () => {
     },
   });
 
-  function onSubmit(data: FormSchema) {
-    //const numericValue = parseFloat(data.amount.replace(/\D/g, "")) / 100;
-    setSubmitted(true);
-    console.log(data);
+  async function onSubmit(data: FormSchema) {
+    try {
+      await addTransaction(data);
+      setDialogIsOpen(false);
+      form.reset();
+    } catch (error) {
+      console.log(`Ops: ${error}`);
+    }
   }
 
   return (
     <Dialog
+      open={dialogIsOpen}
       onOpenChange={(open) => {
+        setDialogIsOpen(open);
         if (!open) {
           form.reset();
         }
@@ -254,12 +260,6 @@ const AddTransactionButton = () => {
             </DialogFooter>
           </form>
         </Form>
-        {submitted && (
-          <Alert className="w-full">
-            <CheckCircle2 className="h-4 w-4" />
-            <AlertDescription>Transação enviada com sucesso!</AlertDescription>
-          </Alert>
-        )}
       </DialogContent>
     </Dialog>
   );
