@@ -25,7 +25,10 @@ const EditTransactionButton = ({ transaction }: EditTransactionButtonProps) => {
       <UpsertTransactionDialog
         isOpen={dialogIsOpen}
         setIsOpen={setDialogIsOpen}
-        defaultValues={{ ...transaction, amount: String(transaction.amount) }} // convert amount to cents
+        defaultValues={{
+          ...transaction,
+          amount: String(Number(transaction.amount) * 100),
+        }} // convert amount to cents
         transactionId={transaction.id}
       />
     </>

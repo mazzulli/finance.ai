@@ -33,11 +33,11 @@ export const upsertTransaction = async (
   console.log(params);
 
   await db.transaction.upsert({
-    where: {
-      id: params.id ?? "",
-    },
     update: { ...params, userId, amount: numericValue },
     create: { ...params, userId, amount: numericValue },
+    where: {
+      id: params?.id ?? "",
+    },
   });
   revalidatePath("/transactions");
 };
