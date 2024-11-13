@@ -30,7 +30,7 @@ import {
   TRANSACTION_CATEGORY_OPTIONS,
   TRANSACTION_PAYMENT_METHOD_OPTIONS,
   TRANSACTION_TYPE_OPTIONS,
-} from "./_constants/transactions";
+} from "../_constants/transactions";
 import { DatePicker } from "./ui/date-picker";
 import { z } from "zod";
 import {
@@ -40,7 +40,8 @@ import {
 } from "@prisma/client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { upsertTransaction } from "../_actions/add-transaction";
+import { upsertTransaction } from "../_actions/upsert-transaction";
+import { useEffect } from "react";
 
 type FormSchema = z.infer<typeof formSchema>;
 
@@ -96,7 +97,7 @@ const UpsertTransactionDialog = ({
     },
   });
 
-  async function onSubmit(data: FormSchema) {
+  const onSubmit = async (data: FormSchema) => {
     try {
       await upsertTransaction({ ...data, id: transactionId });
       setIsOpen(false);
@@ -104,9 +105,15 @@ const UpsertTransactionDialog = ({
     } catch (error) {
       console.log(`Ops: ${error}`);
     }
-  }
+  };
 
   const isUpdate = Boolean(transactionId);
+
+  useEffect(() => {
+    if (defaultValues) {
+      form.reset(defaultValues);
+    }
+  }, [defaultValues, form]);
 
   return (
     <Dialog

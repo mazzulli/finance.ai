@@ -12,6 +12,8 @@ interface EditTransactionButtonProps {
 
 const EditTransactionButton = ({ transaction }: EditTransactionButtonProps) => {
   const [dialogIsOpen, setDialogIsOpen] = useState(false);
+  console.log("ID Edição: ", transaction.id + transaction.name);
+
   return (
     <>
       <Button
