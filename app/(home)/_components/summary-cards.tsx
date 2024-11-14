@@ -8,55 +8,26 @@ import {
   WalletIcon,
 } from "lucide-react";
 import SummaryCard from "./summary-card";
-import { db } from "@/app/_lib/prisma";
 
 interface ISummaryCards {
   month: string;
   userId: string;
+  balance: number;
+  depositsTotal: number;
+  investmentsTotal: number;
+  expensesTotal: number;
 }
 
-const SummaryCards = async ({ month, userId }: ISummaryCards) => {
-  const where = {
-    date: {
-      gte: new Date(`2024-${month}-01`),
-      lt: new Date(`2024-${month}-31`),
-    },
-    userId,
-  };
-
-  const investmentsTotal = Number(
-    (
-      await db.transaction.aggregate({
-        where: { ...where, type: "INVESTMENT" },
-        _sum: { amount: true },
-      })
-    )?._sum?.amount,
-  );
-
-  const expensesTotal = Number(
-    (
-      await db.transaction.aggregate({
-        where: { ...where, type: "EXPENSE" },
-        _sum: { amount: true },
-      })
-    )?._sum?.amount,
-  );
-
-  const depositsTotal = Number(
-    (
-      await db.transaction.aggregate({
-        where: { ...where, type: "DEPOSIT" },
-        _sum: { amount: true },
-      })
-    )?._sum?.amount,
-  );
-
-  const balance = depositsTotal - investmentsTotal - expensesTotal;
-
+const SummaryCards = async ({
+  balance,
+  depositsTotal,
+  investmentsTotal,
+  expensesTotal,
+}: ISummaryCards) => {
   return (
     <div className="space-y-6">
       {/* PRIMEIRO CARD */}
-      <Card>
+      <Card className="bg-zinc-900">
         <CardHeader className="flex-row items-center gap-2">
           <WalletIcon size={16} />
           <p className="text-white opacity-70">Saldo</p>
