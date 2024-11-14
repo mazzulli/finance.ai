@@ -2,9 +2,9 @@ import { db } from "../_lib/prisma";
 import { DataTable } from "../_components/ui/data-table";
 import { transactionColumns } from "./_columns";
 import AddTransactionButton from "../_components/add-transaction-button";
-import Navbar from "../_components/navbar";
 import { redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";
+import Navbar from "../_components/navbar";
 
 const Transactions = async () => {
   const { userId } = await auth();

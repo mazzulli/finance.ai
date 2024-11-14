@@ -9,9 +9,7 @@ const Subscriptions = async () => {
   }
   return (
     <>
-      <div>
-        <Navbar />
-      </div>
+      <Navbar />
       <h1>Subscription Page</h1>
     </>
   );
