@@ -9,3 +9,9 @@ export type TotalExpensePerCategory = {
   totalAmount: number;
   percentageOfTotal: number;
 };
+
+export type LastTransactions = {
+  name: TransactionCategory;
+  amount: number;
+  date: number;
+};
