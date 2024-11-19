@@ -78,7 +78,7 @@ const TransactionsPieChart = ({
             />
           </PieChart>
         </ChartContainer>
-        <div className="space-y-3 p-8">
+        <div className="space-y-2 p-4">
           <PercentageItems
             icon={<TrendingUpIcon size={16} className="text-primary" />}
             title="Receitas"
