@@ -25,17 +25,17 @@ const SummaryCards = async ({
   expensesTotal,
 }: ISummaryCards) => {
   return (
-    <div className="space-y-6">
+    <div className="space-y-2">
       {/* PRIMEIRO CARD */}
       <Card className="bg-zinc-900">
         <CardHeader className="flex-row items-center gap-2">
           <WalletIcon size={16} />
-          <p className="text-white opacity-70">Saldo</p>
+          <p className="text-sm text-white opacity-70">Saldo</p>
         </CardHeader>
         <CardContent className="flex items-center justify-between">
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2">
             <p
-              className={`${balance < 0 ? "text-4xl font-bold text-danger" : "text-4xl font-bold text-primary"}`}
+              className={`${balance < 0 ? "text-2xl font-bold text-danger" : "text-2xl font-bold text-primary"}`}
             >
               {Intl.NumberFormat("pt-BR", {
                 style: "currency",
@@ -49,7 +49,7 @@ const SummaryCards = async ({
       </Card>
 
       {/* OUTROS CARDS */}
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-3 gap-2 text-sm">
         <SummaryCard
           icon={<PiggyBankIcon size={16} />}
           title="Investido"

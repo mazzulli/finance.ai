@@ -15,7 +15,7 @@ const SummaryCard = ({ icon, title, amount }: SummaryCardProps) => {
         <p className="text-white opacity-70">{title}</p>
       </CardHeader>
       <CardContent className="flex items-center">
-        <p className="text-2xl font-bold">
+        <p className="text-xl font-bold">
           {Intl.NumberFormat("pt-BR", {
             style: "currency",
             currency: "BRL",
