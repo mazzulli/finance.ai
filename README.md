@@ -278,3 +278,29 @@ Usamos o componente Alert-Dialog para solicitar a confirmação ao usuário para
 
 O módulo de dashboard é nossa home page.
 Usamos o componente Card para exibir as informações nos summary cards.
+
+# STRIPE
+
+https://dashboard.stripe.com/
+
+O Stripe é uma API de pagamento que permite realizar pagamentos online.
+Para usar o Stripe, você precisa criar uma conta no site do Stripe e obter as chaves que serão utilziadas para a configuração do Stripe no seu projeto.
+
+Para usar o Stripe, você precisa criar uma conta no site do Stripe e criar um projeto, para poder fazer as transações de pagamento.
+
+stripe.com
+Conta: mazzulli@live.com
+Chave secreta: strike@????#???0
+
+Após o cadastro, a primeira coisa a fazer é criar uma seção com o Stripe através da sua aplicação. Para isso tem que instalar a biblioteca do Stripe atraves do comando `npm install stripe@17.3.1` e criar um arquivo com o nome de stripe.
+Criar as entradas abaixo no arquivo .env:
+STRIPE_PREMIUM_PLAN_PRICE_ID
+STRIPE_SECRET_KEY
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+
+Pegar os valores no site do Stripe.
+
+Instalar também a biblioteca @stripe/stripe-js
+`npm install @stripe/stripe-js@4.9.0`
+
+# CHAT GPT
