@@ -303,4 +303,32 @@ Pegar os valores no site do Stripe.
 Instalar também a biblioteca @stripe/stripe-js
 `npm install @stripe/stripe-js@4.9.0`
 
+# STRIPE CLI - CONFIGURANDO O WEBHOOK
+
+https://docs.stripe.com/webhooks
+https://docs.stripe.com/stripe-cli?install-method=windows
+Seguir os passos para executar o comando `stripe login` e criar uma conta no Stripe.
+The Stripe CLI is configured for your account with account id acct_1QMugTKFQsLHTwLv
+Your webhook signing secret is whsec_cf2585ab388b8503c63c783b86ef5f3863f2b3296debef06397b92811f5a70a0
+Este secret acima deve ser salvo em uma variavel de ambiente no arquivo .env.
+Para rodar a CLI do Stripe tem que ser através do terminal, e não através do VSCode. Não dá pra rodar a CLI do Stripe no VSCode e no terminal do bash.
+
+Para receber as notificações do Stripe, você precisa configurar o webhook do Stripe.
+A documentação pode ser vista em
+Para isso, você precisa criamos um arquivo com o nome de route.ts dentro da pasta app/api/webhooks/stripe.
+
+Para acompanhar os eventos é necessário ativar a escuta de eventos no Stripe.
+`stripe listen --forward-to localhost:4242/webhook`
+
+Estas são algumas configurações úteis para ajudar a testar com o ouvinte local:
+
+Para desativar a verificação de certificados HTTPS, use o sinalizador opcional --skip-verify.
+Para encaminhar apenas eventos específicos, use o sinalizador opcional --events e passe uma lista de eventos separados por vírgulas.
+
+stripe listen --events payment_intent.created,customer.created,payment_intent.succeeded,checkout.session.completed,payment_intent.payment_failed \ --forward-to localhost:3000/api/webhook/stripe`
+
+# CANCELAR O PLANO
+
+Para cancelar o plano tem que acessar a conta do Stripe e cancelar o plano.
+
 # CHAT GPT
