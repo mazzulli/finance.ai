@@ -8,6 +8,7 @@ import {
   WalletIcon,
 } from "lucide-react";
 import SummaryCard from "./summary-card";
+import { canUserAddTransaction } from "@/app/_data/can-user-add-transaction";
 
 interface ISummaryCards {
   month: string;
@@ -24,6 +25,7 @@ const SummaryCards = async ({
   investmentsTotal,
   expensesTotal,
 }: ISummaryCards) => {
+  const userCanAddTransactions = await canUserAddTransaction();
   return (
     <div className="space-y-2">
       {/* PRIMEIRO CARD */}
@@ -44,7 +46,9 @@ const SummaryCards = async ({
             </p>
             <Eye />
           </div>
-          <AddTransactionButton />
+          <AddTransactionButton
+            userCanAddTransaction={userCanAddTransactions}
+          />
         </CardContent>
       </Card>
 
