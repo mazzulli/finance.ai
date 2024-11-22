@@ -332,3 +332,15 @@ stripe listen --events payment_intent.created,customer.created,payment_intent.su
 Para cancelar o plano tem que acessar a conta do Stripe e cancelar o plano.
 
 # CHAT GPT
+
+Foi criada uma conta no chatGPT para poder usar a API.
+A conta foi criada com o email do Google.
+Um depósito inicial foi efetuado para poder usar a API.
+Foi necessário instalar o `npm i openai@4.71.1` para se conectar com o chatGPT.
+No site https://platform.openai.com/, acessar a conta e em configurações para criar uma API key.
+A API key foi salva em uma variavel de ambiente no arquivo .env.
+Acessar a documentação do chatGPT para criar um token de acesso. https://platform.openai.com/docs/overview
+No Quickstar, https://platform.openai.com/docs/quickstart?desktop-os=windows, tem um exemplo de como criar um token de acesso e configurar o chatGPT.
+
+Para traduzir o retorno do chatGPT, foi necessário instalar o `npm i react-markdown@9.0.1`
+Usamos o tailwind para estilizar o retorno do chatGPT, `npm install -D @tailwindcss/typography@0.5.15`.
